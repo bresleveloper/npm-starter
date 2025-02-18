@@ -31,6 +31,8 @@ If you want to make cli.js executable directly -> `#!/usr/bin/env node`
 
 To make this tool globally available, you can link it `npm link`
 
+`npm unlink bresleveloper-starter`
+
 `ng g class models/big-item --type=model --skip-tests`
 
 
