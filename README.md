@@ -36,3 +36,13 @@ To make this tool globally available, you can link it `npm link`
 `ng g class models/big-item --type=model --skip-tests`
 
 
+### upload
+
+after git push
+
+npm version patch    # 1.0.0 -> 1.0.1
+npm version minor    # 1.0.0 -> 1.1.0
+npm version major    # 1.0.0 -> 2.0.0
+
+
+npm publish --access public
