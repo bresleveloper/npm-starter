@@ -22,7 +22,10 @@ will create the following:
 3. matching `.sql` in `\Models\scripts\<className>.sql` for `CREATE TABLE` script
 
 
+## Roadmap (maybe)
 
+1. make it so it adds the new `.cs` to the `.csproj`
+2. create a new angular comp with the simple-table and service ect.
 
 
 ### debug
