@@ -4,11 +4,23 @@
 
 
 
-for the sql part to work:
-1. Search "Services" on start menu
-2. Find "SQL Server Browser"
-3. Flip "Start up type" to "Automatic"
-4. Start the service
+## Commands
+
+`bresleveloper new <projectName>` - dups `https://github.com/bresleveloper/Starter-.NET-4.8-NG-18` and changes all files and dirs to new projectName
+
+
+`bresleveloper drill <modelName> [optional] -p`
+1. Must run inside NG project folder
+2. Must have `\models\<my-class>.model.ts` file
+3. Run as `bresleveloper drill <my-class>`, without `.model.ts`
+4. `-p` for print in terminal only, not creating files, useful in you have not created project template with my template
+
+
+will create the following:
+1. matching `.cs` in `\Models\<className>.cs`  
+2. matching web-api-controller in `\Controllers\<className>Controller.cs` as `SimpleController<className>`
+3. matching `.sql` in `\Models\scripts\<className>.sql` for `CREATE TABLE` script
+
 
 
 
@@ -22,12 +34,3 @@ To make this tool globally available, you can link it `npm link`
 `ng g class models/big-item --type=model --skip-tests`
 
 
-
-
-,
-  "preferGlobal": true,
-  "keywords": [
-    "Bresleveloper"
-  ],
-  "author": "Bresleveloper Digital",
-  "license": "MIT"

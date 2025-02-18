@@ -13,5 +13,9 @@
     "commander": "^13.1.0",
     "replace-in-file": "^7.0.0",
     "simple-git": "^3.15.1"
-  }
+  },
+  "keywords": [
+    "Bresleveloper"
+  ],
+  "author": "Bresleveloper Digital"
 }
