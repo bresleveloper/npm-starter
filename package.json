@@ -1,0 +1,17 @@
+{
+  "name": "bresleveloper-starter",
+  "version": "1.0.0",
+  "description": "https://github.com/bresleveloper/Starter-.NET-4.8-NG-18",
+  "main": "src/main.js",
+  "bin": {
+    "bresleveloper": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "replace-in-file": "^7.0.0",
+    "simple-git": "^3.15.1"
+  }
+}
