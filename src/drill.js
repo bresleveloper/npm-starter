@@ -80,10 +80,16 @@ namespace ${pKey}.Models
     function pushNewMembersToCs(mType){
       const matches = ngModelContent.match(mType.r);
       console.log(`Matching Lines for ${mType.cs}:`, matches);
+      if (!matches) {
+        return
+      }
 
       for (let i = 0; i < matches.length; i++) {
         const m = matches[i]; //'    Numen:string'
         let member = m.split(":")[0].trim()
+        if (member == `${className}ID`) {
+          continue
+        }
         
         csFileContent += `        public ${mType.cs} ${member}  { get; set; }\n`
 
@@ -92,7 +98,7 @@ namespace ${pKey}.Models
     };
 
     let arr_mTypes = [
-      { cs:'string',    r: /^.*:string.*$/gm,   sql:'NVARVHAR(150) NULL' },
+      { cs:'string',    r: /^.*:string.*$/gm,   sql:'NVARCHAR(150) NULL' },
       { cs:'int',       r: /^.*:number.*$/gm,   sql:'INT NULL'},
       { cs:'DateTime',  r: /^.*:Date.*$/gm,     sql:'Date NULL'},
       { cs:'bool',      r: /^.*:boolean.*$/gm,  sql:'BIT NULL'},
@@ -108,7 +114,7 @@ namespace ${pKey}.Models
     console.log('.cs file content');
     console.log(csFileContent);
     console.log('.sql file content');
-    console.log(csFileContent);
+    console.log(sqlFileContent);
 
 
     if (!print) {
