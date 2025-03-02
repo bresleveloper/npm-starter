@@ -46,6 +46,10 @@ To make this tool globally available, you can link it `npm link`
 
 ### upload
 
+1. git push all
+2. `npm version patch` (will auto up version)
+3. `npm publish --access public`
+
 after git push
 
 npm version patch    # 1.0.2 -> 1.0.3
