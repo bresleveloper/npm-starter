@@ -31,10 +31,12 @@ program
   .command('drill [model]')
   .description('takes a .ts model file from models ng dir and create C# model and SQL script')
   .option('-p, --print', 'dont create files, just print to terminal')
+  .option('-l, --local', 'use current local folder, for non-angular project')
   //.requiredOption('-m, --model <model fileName> (without the .ts)', 'angular model file name')
   .action(async (model, options) => {
     const print = options.print ? true : false;
-    await drill(model, print);
+    const local = options.local ? true : false;
+    await drill(model, print, local);
   });
 
 // Parse the command-line arguments

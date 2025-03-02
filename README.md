@@ -15,6 +15,9 @@
 3. Run as `bresleveloper drill <my-class>`, without `.model.ts`
 4. `-p` for print in terminal only, not creating files, useful in you have not created project template with my template
 
+#### added working drill with local dir
+`-l` will search file at local working dir like this `bresleveloper drill -p -l myThing` will search at CWD for `myThing.model.ts`
+
 
 will create the following:
 1. matching `.cs` in `\Models\<className>.cs`  

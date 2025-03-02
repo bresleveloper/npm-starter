@@ -5,10 +5,11 @@ const fs = require('fs');
 const readline = require('readline');
 
 
-async function drill(filename, print) {
+async function drill(filename, print, local=false) {
     //test we are in angular directory
     let dir = process.cwd()//C:\Users\Ariel\source\My NPM\testings\bigTest1\bigTest1\AngularFront\bigTest1
-    if (!fs.existsSync(dir + '\\angular.json')) {
+
+    if (!local && !fs.existsSync(dir + '\\angular.json')) {
       console.error("Must be in Angular project directory");
       return
     }
@@ -16,17 +17,21 @@ async function drill(filename, print) {
     let dirza = dir.split('\\')
     let pKey = dirza[dirza.length-1]
     let dirBase = dir.split(pKey)[0] + pKey + '\\' + pKey
-    let dirNGModels = dir + '\\src\\app\\models'
+    let dirNGModels = dir + '\\src\\app\\models\\'
     let dirModels = dirBase + '\\Models'
     let dirCTRL = dirBase + '\\Controllers'
     let dirSql = `${dirModels}\\scripts`
 
+    if (local == true) {
+      dirNGModels = ''
+    }
 
-    let filePath = `${dirNGModels}\\${filename}.model.ts`
+
+    let filePath = `${dirNGModels}${filename}.model.ts`
     console.log('reading .ts from models');
     console.log(filePath);
     if (!fs.existsSync(filePath)) {
-      console.error(`Cant find models\\${filename}.model.ts`);
+      console.error(`Cant find ${filePath}`);
       return
     }
 
@@ -85,7 +90,7 @@ namespace ${pKey}.Models
       }
 
       for (let i = 0; i < matches.length; i++) {
-        const m = matches[i]; //'    Numen:string'
+        const m = matches[i].replace("public ", ""); //'    Numen:string'
         let member = m.split(":")[0].trim()
         if (member == `${className}ID`) {
           continue
@@ -98,10 +103,10 @@ namespace ${pKey}.Models
     };
 
     let arr_mTypes = [
-      { cs:'string',    r: /^.*:string.*$/gm,   sql:'NVARCHAR(150) NULL' },
-      { cs:'int',       r: /^.*:number.*$/gm,   sql:'INT NULL'},
-      { cs:'DateTime',  r: /^.*:Date.*$/gm,     sql:'Date NULL'},
-      { cs:'bool',      r: /^.*:boolean.*$/gm,  sql:'BIT NULL'},
+      { cs:'string',    r: /^.*:\s?string.*$/gm,   sql:'NVARCHAR(150) NULL' },
+      { cs:'int',       r: /^.*:\s?number.*$/gm,   sql:'INT NULL'},
+      { cs:'DateTime',  r: /^.*:\s?Date.*$/gm,     sql:'Date NULL'},
+      { cs:'bool',      r: /^.*:\s?boolean.*$/gm,  sql:'BIT NULL'},
     ];
 
     for (let j = 0; j < arr_mTypes.length; j++) {
