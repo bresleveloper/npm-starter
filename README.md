@@ -23,6 +23,7 @@ will create the following:
 1. matching `.cs` in `\Models\<className>.cs`  
 2. matching web-api-controller in `\Controllers\<className>Controller.cs` as `SimpleController<className>`
 3. matching `.sql` in `\Models\scripts\<className>.sql` for `CREATE TABLE` script
+4. make the proj props of the .Net to make default page `http://localhost:4200`
 
 
 ## Roadmap (maybe)
