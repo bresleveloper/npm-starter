@@ -2,6 +2,7 @@
 
 # Bresleveloper Digital Starter
 
+see at npm `https://www.npmjs.com/package/@bresleveloper/starter`
 
 
 ## Commands
