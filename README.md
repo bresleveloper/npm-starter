@@ -48,7 +48,7 @@ To make this tool globally available, you can link it `npm link`
 
 after git push
 
-npm version patch    # 1.0.0 -> 1.0.1
+npm version patch    # 1.0.2 -> 1.0.3
 npm version minor    # 1.0.0 -> 1.1.0
 npm version major    # 1.0.0 -> 2.0.0
 
